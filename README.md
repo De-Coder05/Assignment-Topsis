@@ -13,24 +13,32 @@ The TOPSIS method is based on the concept that the chosen alternative should hav
 ### Steps Involved:
 1.  **Normalization of the Decision Matrix**:
     The values in the decision matrix are normalized to bring them to a comparable scale.
-    $$ r_{ij} = \frac{x_{ij}}{\sqrt{\sum_{i=1}^{m} x_{ij}^2}} $$
+    ```
+    r_ij = x_ij / sqrt(sum(x_ij^2))
+    ```
 
 2.  **Weighted Normalized Decision Matrix**:
     Each column of the normalized matrix is multiplied by its associated weight.
-    $$ v_{ij} = w_j \times r_{ij} $$
+    ```
+    v_ij = w_j * r_ij
+    ```
 
 3.  **Ideal Best and Ideal Worst Solutions**:
-    -   **Ideal Best ($V^+$)**: Maximum value for beneficial attributes ('+') and minimum for non-beneficial attributes ('-').
-    -   **Ideal Worst ($V^-$)**: Minimum value for beneficial attributes ('+') and maximum for non-beneficial attributes ('-').
+    -   **Ideal Best (V+)**: Maximum value for beneficial attributes ('+') and minimum for non-beneficial attributes ('-').
+    -   **Ideal Worst (V-)**: Minimum value for beneficial attributes ('+') and maximum for non-beneficial attributes ('-').
 
 4.  **Euclidean Distance Calculation**:
-    Distance from the Ideal Best ($S_i^+$) and Ideal Worst ($S_i^-$) is calculated.
-    $$ S_i^+ = \sqrt{\sum_{j=1}^{n} (v_{ij} - v_j^+)^2} $$
-    $$ S_i^- = \sqrt{\sum_{j=1}^{n} (v_{ij} - v_j^-)^2} $$
+    Distance from the Ideal Best (S+) and Ideal Worst (S-) is calculated.
+    ```
+    S_i+ = sqrt(sum(v_ij - v_j+)^2)
+    S_i- = sqrt(sum(v_ij - v_j-)^2)
+    ```
 
 5.  **Topsis Score Calculation**:
     The performance score is calculated as the ratio of the distance from the ideal worst solution to the total distance.
-    $$ P_i = \frac{S_i^-}{S_i^+ + S_i^-} $$
+    ```
+    P_i = S_i- / (S_i+ + S_i-)
+    ```
 
 6.  **Ranking**:
     Alternatives are ranked in descending order of their Topsis Score.
